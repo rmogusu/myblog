@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>{{#block "title"}}Blog{{/block}}</title>
+
+   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+</head>
+<body>
+<ul class="nav nav-tabs">
+   <li role="presentation" class="active"><a href="#">Home</a></li>
+   <li role="presentation"><a href="/posts">See All Posts</a></li>
+   <li role="presentation"><a href="/posts/new">Add a New Post</a></li>
+</ul>
+<div class="container">
+   <!--begin main template-->
+   <div class="page-header">
+       <img src="/images/backround.jpg" width="30%">
+       <h1>Welcome to my Epicodus Blog. <small>A journey into code!</small></h1>
+
+
+   <div class="col-md-12">
+       {{#block "content"}}
+       {{/block}}
+
+   </div>
+</div>
+</div>
+<!--end main template-->
+{{#block "footer"}}
+   </body>
+   </html>
+{{/block}}
