@@ -1,24 +1,23 @@
 {{#partial "content"}}
 
-   <h1>Post list!</h1>
+   {{#partial "content"}}
+       <h1>Post list!</h1>
 
-   {{#if posts}} <!--if posts exist, then -->
-       {{#each posts }} <!--loop-->
-        <p>Current post:</p>
-        <p>{{ content }}</p> <!--show-->
-       {{/each}}
-   {{else}} <!--no posts!-->
-    <p>No posts!</p>
-   {{/if}}
+       {{#if posts}} <!--if posts exist, then -->
+           {{#each posts}} <!--loop-->
+               <p>Current post:</p>
+               <p> {{ content }}</p>  <!--show-->
+           {{/each}}
+       {{else}} <!--no posts!-->
+       <p>No posts!</p>
+       {{/if}}
 
-   <p>Add a new Post:</p>
+       <p>Add a new Post:</p>
+       <form method="POST" action="/posts/new">
+           <label for="content">Post Description</label>
+           <input id="content" name="content" type="text">
 
-   <form action="/posts/new" method="post">
-       <label for="content">Post Content</label>
-       <input id="content" name="content" type="text">
-
-       <button type="submit" class="btn btn-default">Add new blog post</button>
-   </form>
-{{/partial}}
-
-{{> layout.hbs}}
+           <button type="submit" class="btn btn-default">Add post</button>
+       </form>
+   {{/partial}}
+   {{> layout.hbs}}

@@ -1,32 +1,25 @@
+{{#block "header"}}
 <!DOCTYPE html>
 <html>
 <head>
-   <title>{{#block "title"}}Blog{{/block}}</title>
-
-   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> {{#block "title"}} Welcome to my Blog{{/block}} </title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel='stylesheet' href='/app.css'>
 </head>
 <body>
-<ul class="nav nav-tabs">
-   <li role="presentation" class="active"><a href="#">Home</a></li>
-   <li role="presentation"><a href="/posts">See All Posts</a></li>
-   <li role="presentation"><a href="/posts/new">Add a New Post</a></li>
-</ul>
-<div class="container">
-   <!--begin main template-->
-   <div class="page-header">
-       <img src="/images/backround.jpg" width="30%">
-       <h1>Welcome to my Epicodus Blog. <small>A journey into code!</small></h1>
+{{/block}}
+<!--begin main template-->
+    <div class="page">
+        {{#block "content"}}
 
+        {{/block}}
 
-   <div class="col-md-12">
-       {{#block "content"}}
-       {{/block}}
-
-   </div>
-</div>
-</div>
-<!--end main template-->
 {{#block "footer"}}
-   </body>
-   </html>
+    </div>
+</body>
+</html>
 {{/block}}
