@@ -8,12 +8,10 @@ import java.util.Map;
 
 import static spark.Spark.*;
 
-
 public class App {
+    public static void main(String[] args) { //type “psvm + tab” to autocreate this :)
+        staticFileLocation("/public");
 
-
-    public static void main(String[] args) { //typge “psvm + tab” to autocreate this :)
-        staticFileLocation ("/public");
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             ArrayList<Post> posts = Post.getAll();

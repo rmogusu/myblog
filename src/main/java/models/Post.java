@@ -20,30 +20,37 @@ public class Post {
     }
 
     public String getContent() {
+
         return content;
     }
 
     public static ArrayList<Post> getAll(){
+
         return instances;
     }
 
-    public static void clearAllPosts(){
+    public static void clearAllPosts()
+    {
         instances.clear();
     }
 
     public boolean getPublished(){ //new too
+
         return this.published;
     }
 
     public LocalDateTime getCreatedAt() {
+
         return createdAt;
     }
 
     public int getId() {
+
         return id;
     }
 
     public static Post findById(int id){
+
         return instances.get(id-1); //why minus 1? See if you can figure it out.
     }
 
