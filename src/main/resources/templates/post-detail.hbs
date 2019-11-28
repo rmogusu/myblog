@@ -1,18 +1,19 @@
-{#partial "content"}}
-   <p>Content:</p>
-   <p>{{ post.content }}</p>
-   <h5>Created At:</h5>
-   <p> {{ post.createdAt }}</p>
-   <h5>Post status:</h5>
-   <p>
-       {{#if post.published }}
-           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>  Published
-       {{else}}
-           <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Draft
-       {{/if}}
-       <a href="/posts/{{post.id}}/update">Edit this post</a>
+{{#partial "content"}}
+    <p>Content:</p>
+    <p>{{ post.content }}</p>
+    <h5>Created At:</h5>
+    <p> {{ post.createdAt }}</p>
+    <h5>Post status:</h5>
+    <p>
+        {{#if post.published }}
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>  Published
+        {{else}}
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Draft
+        {{/if}}
 
-   </p>
+        <a href="/posts/{{post.id}}/update">Edit this post</a> </p><br>
+        <a href="/posts/{{post.id}}/delete">DELETE this post (no undo)</a>
+    </p>
 {{/partial}}
 
 {{> layout.hbs}}

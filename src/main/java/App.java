@@ -8,12 +8,12 @@ import java.util.Map;
 
 import static spark.Spark.*;
 
-
 public class App {
+    public static void main(String[] args) { //type “psvm + tab” to autocreate this :)
+        staticFileLocation("/public");
 
+        //get: show new post form
 
-    public static void main(String[] args) { //typge “psvm + tab” to autocreate this :)
-        staticFileLocation ("/public");
         get("/posts/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "post-form.hbs");
@@ -37,6 +37,13 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //get: delete all posts
+
+        get("/posts/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            Post.clearAllPosts();
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
 
         //get: show an individual post
 
@@ -70,5 +77,14 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //get: delete an individual post
+
+        get("/posts/:id/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfPostToDelete = Integer.parseInt(req.params("id")); //pull id - must match route segment
+            Post deletePost = Post.findById(idOfPostToDelete); //use it to find post
+            deletePost.deletePost();
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }
