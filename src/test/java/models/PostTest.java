@@ -80,6 +80,7 @@ public class PostTest {
     }
 
     public Post setupNewPost(){
+
         return new Post("Day 1: Intro");
     }
 }
